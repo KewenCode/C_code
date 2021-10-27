@@ -1,2 +1,2 @@
 ﻿  test.c
-  test_1_3.vcxproj -> D:\大学\学习\code\test_1_3\Debug\test_1_3.exe
+LINK : fatal error LNK1168: 无法打开 D:\C语言\C_code\test_1_3\Debug\test_1_3.exe 进行写入
