@@ -268,3 +268,117 @@
 // static 静态的
 // 
 //
+
+
+//typedef unsigned int u_int;
+//int main()
+//{
+//	unsigned int unm = 100;
+//	u_int num2 = 100;
+//	//类型重定义
+//	return 0;
+//}
+
+//static 静态的
+//1、static修饰局部变量
+// 2、static修饰全局变量
+// 3、修饰函数
+// 
+//
+
+//void test()
+//{
+//	static int a = 1;
+//	a++;
+//	printf("%d\n", a);
+//}
+//int main()
+//{
+//	int u = 0;
+//	while (i < 10)
+//	{
+//		test();
+//		i++;
+//	}
+//	return 0;
+//}
+////static修饰局部变量，改变了局部变量的生命周期（本质上是改变了变量的存储类型）
+
+
+//extern声明外部符号
+//extern int g_val;
+////全局变量在整个工程中都可以用
+////static声明的全局变量只能在本.c文件中使用
+//int main()
+//{
+//	printf("%d", g_val);
+//	return 0;
+//}
+
+//声明函数
+//extern int Add(int ,int);
+//int main()
+//{
+//	int a = 20;
+//	int b = 10;
+//	int sum = Add(a, b);
+//	printf("%d ", sum);
+//	return 0;
+//}
+
+
+//define是一个预处理指令
+//1、define定义符号
+
+
+//#define Max 1000
+//int main()
+//{
+//	printf("%d", Max);
+//	return 0;
+//}
+
+////2、define定义宏
+//#define ADD(X,Y) ((X)+(Y))
+//
+//int main()
+//{
+//	printf("%d\n", 4*ADD(2, 3));
+//
+//	return 0;
+//}
+
+
+//int main()
+//{
+//	int a = 10;//a在内存中要分配空间 - 4个字节
+//	printf("%p\n", &a);//%p专门用来打印地址
+//
+//	int * pa = &a;//pa是用来存放地址的，在C语言中pa叫指针变量
+//	//*说明 pa是指针变量
+//	//int 说明pa执行的对象是int类型的
+//
+//	*pa = 20;// * 解引用操作，*pa就是通过pa里面的地址，找到a
+//
+//	return 0;
+//}
+
+//结构体可以让C语言创建新的类型出来
+//创建一个学生
+struct Stu
+{
+	char name[20];//成员变量
+	int age;
+	double score;
+};
+int main()
+{
+	struct Stu s = {"张三",20,85.5};//结构体的创建和初始化
+	printf("%s %d %lf\n", s.name, s.age, s.score);//结构体变量.成员变量
+
+	struct Stu* ps = &s;
+	printf("%s %d %lf\n", (*ps).name, (*ps).age, (*ps).score);
+
+	printf("%s %d %lf\n", ps->name, ps->age, ps->score);//  结构体指针->成员变量名
+	return 0;
+}
