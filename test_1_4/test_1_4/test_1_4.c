@@ -28,7 +28,7 @@
 
 
 //分支语句
-//if 语句
+  //if 语句
 //分号隔开的就是一个语句
 
 //int main()
@@ -76,19 +76,19 @@
 
 //int main()
 //{
-//	int num = 0;
-//	while (num < 100)
+//	int num = 0;  //初始化
+//	while (num < 100)  //判断部分
 //	{
 //		if (num % 2 == 1)
 //		{
 //			printf("%d\n", num);
 //		}
-//		num++;
+//		num++;  // 调整部分
 //	}
 //	return 0;
 //}
 
-    //for 方法
+  //for 方法
 
 //int main()
 //{
@@ -140,7 +140,7 @@
 //
 
 
-//while  语句
+  //while  语句
 
 //int main()
 //{
@@ -161,15 +161,162 @@
 //getchar putchar EOF=enf of file 值是-1
 //CTRL+Z - getchar 读取结束
 
+//int main()
+//{
+//    int ch = 0;
+//    while ((ch = getchar()) != EOF)
+//    {
+//        putchar(ch);
+//        
+//    }
+//    return 0;
+//}
+
+        //查询密码
+
+//int main()
+//{
+//    char password[20] = { 0 };
+//    printf("请输入密码：");
+//    scanf("%s", password);//123456
+//    printf("请确认密码：（Y/N）");
+//    //清理缓冲区
+//    int tmp = 0;
+//    while ((tmp = getchar()) != '\n')//getchar();处理‘\n’
+//    {
+//        ;
+//    }
+//    //清理缓冲区中多个字符
+//    int ch = getchar();
+//    if (ch = 'Y')
+//    {
+//        printf("确认成功\n");
+//    }
+//    else
+//    {
+//        printf("确认失败\n");
+//    }
+//    return 0;
+//}
+
+  //for 语句
+
+//int main()
+//{
+//    int i = 0;
+//    //判断部分的省略 - -判断部分恒为真
+//    for (i = 1;i <= 10;i++)
+//    {
+//        if (i == 5)
+//            break;
+//        printf("%d ", i);
+//    }
+//    return 0;
+//}
+
+// do while 语句
+//循环至少执行一次
+
+//int main()
+//{
+//    int i = 1;
+//    do
+//    {
+//        if (i == 5)
+//            break;
+//        printf("%d ", i);
+//        i++;
+//    } while (i <= 10);
+//
+//    return 0;
+//}
+
+
+//计算n的阶乘
+
+//int main()
+//{
+//    int i = 0;
+//    int n = 0;
+//    int ret = 1;
+//    scanf("%d",&n);
+//    for (i = 1;i <= n;i++)
+//    {
+//        ret *= i;//ret = ret * i;
+//    }
+//    printf("%d", ret);
+//    return 0;
+//}
+
+
+//计算1！+2！+3!......+10!(!是阶乘)
+
+//int main()
+//{
+//    int i = 0;
+//    int n = 0;
+//    int ret = 1;
+//    int sum = 0;
+//    for (n = 1;n <= 10; n++)
+//    {
+//        ret = 1;//计算n的阶乘之前，把ret初始为1
+//        for (i = 1;i <= n;i++)
+//        {
+//            ret *= i;//ret = ret * i;
+//        }
+//        sum += ret;
+//    }
+//    printf("%d", sum);
+//    return 0;
+//}
+
+//int main()
+//{
+//    int n = 0;
+//    int ret = 1;
+//    int sum = 0;
+//    for (n = 1;n <= 10; n++)
+//    {
+//        ret *= n;
+//        sum += ret; 
+//    }
+//    printf("%d", sum);
+//    return 0;
+//}
+
+
+//在一个有序数组中查找某个具体数字n
+//折半查找 二分查找
+
 int main()
 {
-    int ch = 0;
-    while ((ch = getchar()) != EOF)
+    int arr[] = { 1,2,3,4,5,6,7,8,9,10 };
+    int k = 7;//要查找的数字
+    //在arr这个有序的数组中查找k（7）的值
+    int sz = sizeof(arr) / sizeof(arr[0]);//数组的元素个数
+    int left = 0;
+    int right = sz-1;
+
+    while (left<=right)
     {
-        putchar(ch);
+        int mid = (right + left) / 2;
+        if (arr[mid] < k)
+        {
+            left = mid + 1;
+        }
+        else if (arr[mid] > k)
+        {
+            right = mid - 1;
+        }
+        else
+        {
+            printf("找到了，下标是：%d\n", mid);
+            break;
+        }
+    }
+    if (left > right)
+    {
+        printf("找不到\n");
     }
     return 0;
 }
-
-
-
