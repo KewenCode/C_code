@@ -389,68 +389,276 @@
 // 3、一直玩
 //
 
-#include<stdlib.h>
-#include<time.h>
-#include<windows.h>
-void menu()
-{
-    printf("******************\n");
-    printf("*** 猜数字游戏 ***\n");
-    printf("***  1.  play  ***\n");
-    printf("***  0.  exit  ***\n");
-    printf("******************\n");
-}
-void game()
-{
-    //猜数字游戏实现
-    //1.生成随机数字
-    //rand函数返回了一个0-32767之间数字
-    //时间 - 时间戳
-    int ret = rand()%100+1;//%100的余数是0-99，然后+1，范围就是1-100
-    //2.猜数字
-    int guess = 0;
-    while (1)
-    {
-        printf("请猜数字(0-100)：");
-        scanf("%s", &guess);
-        if (guess < ret)
-        {
-            printf("猜小了\n");
-        }
-        else if(guess > ret)
-        {
-            printf("猜大了\n");
-        }
-        else 
-        {
-            printf("恭喜你，猜对了\n");
-            break;
-        }
-    }
-}
-int main()
-{
-    int input = 0;
-    int input1 = 0;
-    srand((unsigned int)time(NULL));
-    do
-    {
-        menu();//打印菜单
-        printf("请选择：");
-        scanf("%d", &input);
-        switch (input)
-        {
-        case 1:
-            //printf("猜数字：\n");
-            game();
-            break;
-        case 0:
-            printf("退出游戏\n");
-            break;
-        default:
-            printf("选择错误，重新选择\n");
-            break;
-        }
-    } while (input);
-    return 0;
-}
+//#include<stdlib.h>
+//#include<time.h>
+//#include<windows.h>
+//void menu()
+//{
+//    printf("******************\n");
+//    printf("*** 猜数字游戏 ***\n");
+//    printf("***  1.  play  ***\n");
+//    printf("***  0.  exit  ***\n");
+//    printf("******************\n");
+//}
+//void game()
+//{
+//    //猜数字游戏实现
+//    //1.生成随机数字
+//    //rand函数返回了一个0-32767之间数字
+//    //时间 - 时间戳
+//    int ret = rand()%100+1;//%100的余数是0-99，然后+1，范围就是1-100
+//    //2.猜数字
+//    int guess = 0;
+//    while (1)
+//    {
+//        printf("请猜数字(0-100)：");
+//        scanf("%s", &guess);
+//        if (guess < ret)
+//        {
+//            printf("猜小了\n");
+//        }
+//        else if(guess > ret)
+//        {
+//            printf("猜大了\n");
+//        }
+//        else 
+//        {
+//            printf("恭喜你，猜对了\n");
+//            break;
+//        }
+//    }
+//}
+//int main()
+//{
+//    int input = 0;
+//    int input1 = 0;
+//    srand((unsigned int)time(NULL));
+//    do
+//    {
+//        menu();//打印菜单
+//        printf("请选择：");
+//        scanf("%d", &input);
+//        switch (input)
+//        {
+//        case 1:
+//            //printf("猜数字：\n");
+//            game();
+//            break;
+//        case 0:
+//            printf("退出游戏\n");
+//            break;
+//        default:
+//            printf("选择错误，重新选择\n");
+//            break;
+//        }
+//    } while (input);
+//    return 0;
+//}
+
+
+//go to 语句
+
+//int main()
+//{
+//flag:
+//    printf("hehe\n");
+//    goto flag;
+//    return 0;
+//}
+
+//关机程序
+//只要运行起来，电脑就在1分钟内关机，如果输入：我是猪，就取消关机！
+
+//#include<windows.h>
+//#include<string.h>
+//int main()
+//{
+//    //关机
+//    char input[20] = { 0 };
+//    system("shutdown -s -t 60");
+// again:
+//    printf("请注意，你的电脑在1分钟内关机，如果输入：我是猪，就取消关机\n");
+//    scanf("%s", input);
+//    if (strcmp(input,"我是猪")==0)
+//    {
+//        system("shutdown -a");
+//    }
+//    else
+//    {
+//        goto again;
+//    }
+//    return 0;
+//}
+
+
+
+
+
+
+//作业
+//写代码讲三个整数从大到小输出
+
+//int main()
+//{
+//	int a = 0;
+//	int b = 0;
+//	int c = 0;
+//	//输入
+//	scanf("%d%d%d", &a,&b,&c);
+//	//调整输入顺序
+//	if (a < b)
+//	{
+//		int tmp = a;
+//		a = b;
+//		b = tmp;
+//	}
+//	if (a < c)
+//	{
+//		int tmp = a;
+//		a = c;
+//		c = tmp;
+//	}
+//	if (b < c)
+//	{
+//		int tmp = b;
+//		b = c;
+//		c = tmp;
+//	}
+//	//输出
+//	printf("%d %d %d\n", a, b, c);
+//	return 0;
+//}
+
+//写一个代码打印1-100之间所有3的倍数的数字
+
+//int main()
+//{
+//	int i = 0;
+//	//  for (i = 1;i <= 100;i++)
+//	// {
+//	//	if (i % 3 == 0)
+//	//	{
+//	//		printf("%d ", i);
+//	//	}
+//	//  }
+//	for (i = 3;i <= 100;i+=3)
+//	{
+//		printf("%d ", i);
+//	}
+//	return 0;
+//}
+
+
+//给两个数，求最大公约数
+
+//int main()
+//{
+//	int m = 0;
+//	int n = 0;
+//	scanf("%d%d", &m, &n);
+//	int max = 0;
+//	if (m > n)
+//		max = n;
+//	else
+//		max = m;
+//
+//	while (1)
+//	{
+//		if (m % max == 0 && n % max == 0)
+//		{
+//			printf("最大公约数就是：%d\n", max);
+//			break;
+//		}
+//		max--;
+//	}
+//	return 0;
+//}
+
+//辗转相除法
+
+//int main()
+//{
+//	int m = 0;
+//	int n = 0;
+//	scanf("%d%d", &m, &n);
+//	int t = 0;
+//	while (t=m % n)
+//	{
+//		m = n;
+//		n = t;
+//	}
+//	printf("%d\n", n);
+//	return 0;
+//}
+
+//打印1000年到2000年之间的闰年
+
+//int main()
+//{
+//	int y = 0;
+//	for (y = 1000; y <= 2000; y++)
+//	{
+//		//判断y是不是闰年
+//		//1.能被4整除，不能被1000整除是闰年
+//		//2.能被400整除
+//		if (y % 4 == 0)
+//		{
+//			if (y % 100 != 0)
+//			{
+//				printf("%d ", y);
+//			}
+//		}
+//		if (y % 400 == 0)
+//		{
+//			printf("%d ", y);
+//		}
+//	}
+//	return 0;
+//}
+
+//打印100~200之间的素数
+
+//int main()
+//{
+//	int i = 0;
+//	for (i = 100;i <= 200; i++)
+//	{
+//		int j = 0;
+//		for (j = 2; j < i; j++)//2 -> i-1之间的数字去除i，看能不能整除
+//		{
+//			if (i % j == 0)
+//			{
+//				break;
+//			}
+//		}
+//		if (i == j)
+//		{
+//			printf("%d ", i);
+//		}
+//	}
+//	return 0;
+//}
+
+//#include<math.h>
+//int main()
+//{
+//    int i = 0;
+//    for (i = 101;i <= 200; i += 2)
+//    {
+//        int j = 0;
+//        int flag = 1;//假设i就是素数
+//        for (j = 2; j <= sqrt(i); j++)//2 -> i-1之间的数字去除i，看能不能整除
+//        {
+//            if (i % j == 0)
+//            {
+//                flag = 0;//不是素数
+//                break;
+//            }
+//        }
+//        if (flag == 1)
+//        {
+//            printf("%d ", i);
+//        }
+//    }
+//    return 0;
+//}
