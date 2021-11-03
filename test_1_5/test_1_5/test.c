@@ -150,43 +150,103 @@
 // 仅仅传过去了数组元素的地址
 //
 
-int binary_search(int a[], int k, int s)
-{
-	int left = 0;
-	int right = s - 1;
-	int mid = (left + right) / 2;
-	while(left <= right)
-	{
-		if (a[mid] > k)
-		{
-			right = mid - 1;
-		}
-		else if (a[mid] < k)
-		{
-			left = mid + 1;
-		}
-		else
-		{
-			return mid;
-		}
-	}
-	return -1;
-}
+//int binary_search(int a[], int k, int s)
+//{
+//	int left = 0;
+//	int right = s - 1;
+//	int mid = (left + right) / 2;
+//	while(left <= right)
+//	{
+//		if (a[mid] > k)
+//		{
+//			right = mid - 1;
+//		}
+//		else if (a[mid] < k)
+//		{
+//			left = mid + 1;
+//		}
+//		else
+//		{
+//			return mid;
+//		}
+//	}
+//	return -1;
+//}
+//
+//int main()
+//{
+//	int arr[] = { 1,2,3,4,5,6,7,8,9,10 };
+//	int key = 7;
+//	int sz = sizeof(arr) / sizeof(arr[0]);
+//	//找到了就返回找到位置的下标
+//	int ret = binary_search(arr, key, sz);
+//	if (-1 == ret)
+//	{
+//		printf("找不到");
+//	}
+//	else
+//	{
+//		printf("找到了，下标是：%d\n", ret);
+//	}
+//	return 0;
+//}
+
+//函数没用一次，num+1
+
+//void Add(int* p)
+//{
+//	(*p)++;
+//}
+//int main()
+//{
+//	int num = 0;
+//	Add(&num);
+//	return 0;
+//}
+
+//函数的嵌套调用和链式访问
+
+//void test3()
+//{
+//	printf("hehe\n");
+//}
+//int test2()
+//{
+//	test3();
+//	return 0;
+//}
+//int main()
+//{
+//	test2();
+//	return 0;
+//}
+
+
+//int main()
+//{
+//	//int len = strlen("abc");
+//	//printf("%d\n", len);
+//	////链式访问
+//	//printf("%d\n", strlen("abc"));
+//
+//	printf("%d", printf("%d", printf("%d", 43)));//返回值：4321
+//	//printf返回的是字符个数,打印跟返回字符个数不一样
+//	return 0;
+//}
 
 int main()
 {
-	int arr[] = { 1,2,3,4,5,6,7,8,9,10 };
-	int key = 7;
-	int sz = sizeof(arr) / sizeof(arr[0]);
-	//找到了就返回找到位置的下标
-	int ret = binary_search(arr, key, sz);
-	if (-1 == ret)
-	{
-		printf("找不到");
-	}
-	else
-	{
-		printf("找到了，下标是：%d\n", ret);
-	}
+	int a = 10;
+	int b = 20;
+	//函数声明一下 - 告知
+	int Add(int, int);
+	
+	int c = Add(a, b);
+	printf("%d", c);
 	return 0;
+}
+//函数的定义
+int Add(int x, int y)
+{
+	return x + y;
 }
