@@ -234,19 +234,54 @@
 //	return 0;
 //}
 
+//int main()
+//{
+//	int a = 10;
+//	int b = 20;
+//	//函数声明一下 - 告知
+//	int Add(int, int);
+//	
+//	int c = Add(a, b);
+//	printf("%d", c);
+//	return 0;
+//}
+////函数的定义
+//int Add(int x, int y)
+//{
+//	return x + y;
+//}
+
+
+//函数的 递归  - 大事化小
+//int main()
+//{
+//	printf("hehe\n");
+//	main();
+//
+//	return 0;
+//}
+
+//接收一个整型值（无符号），按顺序打印它的每一位。如：输入1234，输出 1 2 3 4
+// 1234%10=        4
+// 1234/10=123%10 =3
+// 123/10 =12/10  =2
+// 12/10  =1%10   =1
+// 1/10   =0
+
+void print(unsigned int n)
+{
+	if (n > 9)
+	{
+		print(n / 10);
+	}
+	printf("%d ", n % 10);
+}
+
 int main()
 {
-	int a = 10;
-	int b = 20;
-	//函数声明一下 - 告知
-	int Add(int, int);
-	
-	int c = Add(a, b);
-	printf("%d", c);
+	unsigned int num = 0;
+	scanf("%u", &num);//1234
+	//递归 - 函数自己调用自己
+	print(num);//print函数可以打印参数部分数字的每一位
 	return 0;
-}
-//函数的定义
-int Add(int x, int y)
-{
-	return x + y;
 }
