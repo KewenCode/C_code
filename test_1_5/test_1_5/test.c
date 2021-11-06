@@ -346,25 +346,97 @@
 //	return 0;
 //}
 
-int Fib(int n)
-{
-	int a = 1;
-	int b = 1;
-	int c = 1;
-	while(n>2)
-	{
-				c = a + b;
-		a = b;
-		b = c;
-		n--;
-	}
-	return c;
-}
+//int Fib(int n)
+//{
+//	int a = 1;
+//	int b = 1;
+//	int c = 1;
+//	while(n>2)
+//	{
+//				c = a + b;
+//		a = b;
+//		b = c;
+//		n--;
+//	}
+//	return c;
+//}
+//int main()
+//{
+//	int n = 0;
+//	scanf("%d", &n);
+//	int ret = Fib(n);
+//	printf("%d\n", ret);
+//	return 0;
+//}
+
+
+//1到100的所有整数中出现多少个数字9
+//int main()
+//{
+//	int i = 0;
+//	int count = 0;
+//	for (i = 1;i <= 100;i++)
+//	{
+//		if (i % 10 == 9)
+//			count++;
+//		if (i / 10 == 9)
+//			count++;
+//	}
+//	printf("%d\n", count);
+//	return 0;
+//}
+
+//计算1/1-1/2....1/100的值
+//int main()
+//{
+//	int i = 0;
+//	double sum = 0.0;
+//	///*for (i = 1;i <= 100;i++)
+//	//{
+//	//	if (i % 2 == 0)
+//	//		sum -= 1.0 / i;
+//	//	else
+//	//		sum += 1.0 / i;
+//	//}*/
+//	int flag = 1;
+//	for (i = 1;i <= 100;i++)
+//	{
+//		sum += flag*1.0 / i;
+//		flag = -flag;
+//	}
+//	printf("%lf\n", sum);
+//	return 0;
+//}
+
+//求10个整数最大值
+//int main()
+//{
+//	int arr[] = {1,2,3,4,5,6,7,8,9,10};
+//	int max = arr[0];
+//	int i = 0;
+//	for (i = 1;i < 10;i++)
+//	{
+//		if (arr[i] > max)
+//			max = arr[i];
+//	}
+//	printf("%d", max);
+//	return 0;
+//}
+
+//输出9*9乘法口诀表
 int main()
 {
-	int n = 0;
-	scanf("%d", &n);
-	int ret = Fib(n);
-	printf("%d\n", ret);
+	int i = 1;
+	//行数控制
+	for (i = 1;i <= 9; i++)
+	{
+		//打印一行
+		int j = 0;
+		for (j = 1;j <= i; j++)
+		{
+			printf("%d*%d=%2d ", i, j, i * j);
+		}
+		printf("\n");
+	}
 	return 0;
 }
