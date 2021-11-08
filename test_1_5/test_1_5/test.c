@@ -468,33 +468,82 @@
 
 
 //调换顺序
-int my_strlen(char* str)
+//int my_strlen(char* str)
+//{
+//	int count = 0;
+//	while (*str != '\0')
+//	{
+//		count++;
+//		str++;
+//	}
+//	return count;
+//}
+//void reverse_string(char* str)
+//{
+//	int left = 0;
+//	int right = my_strlen(str) - 1;
+//	while (left < right)
+//	{
+//		char tmp = *(str + left);//str[left];
+//		str[left] = str[right];
+//		str[right] = tmp;
+//		left++;
+//		right--;
+//	}
+//}
+//int main()
+//{
+//	char arr[] = "abcdef";
+//	reverse_string(arr);
+//	printf("%s\n", arr);
+//	return 0;
+//}
+
+//递归函数DigitSum(n),输入一个非负整数，返回他们的数字之和
+//int DigitSum(int n)
+//{
+//	//int a = 0;
+//	//while (n % 10 != 0)
+//	//{
+//	//	a += (n % 10);
+//	//	n = n / 10;
+//	//}
+//	//return a;
+//
+//	if (n > 9)
+//	{
+//		return DigitSum(n / 10) + n % 10;
+//	}
+//	else
+//	{
+//		return n;
+//	}
+//}
+//int main()
+//{
+//	int num = 1729;
+//	int sum = DigitSum(num);
+//
+//	printf("%d\n", sum);
+//	return 0;
+//}
+
+//编写一个函数实现n的K次方，使用递归实现
+double Pow(int x,int y)
 {
-	int count = 0;
-	while (*str != '\0')
-	{
-		count++;
-		str++;
-	}
-	return count;
-}
-void reverse_string(char* str)
-{
-	int left = 0;
-	int right = my_strlen(str) - 1;
-	while (left < right)
-	{
-		char tmp = *(str + left);//str[left];
-		str[left] = str[right];
-		str[right] = tmp;
-		left++;
-		right--;
-	}
+	if (y == 0)
+		return 1;
+	else if (y > 0)
+		return  Pow(x, y - 1) * x;
+	else //if(y < 0)
+		return 1.0 / (Pow(x, -y));
 }
 int main()
 {
-	char arr[] = "abcdef";
-	reverse_string(arr);
-	printf("%s\n", arr);
+	int n = 0;
+	int k = 0;
+	scanf("%d %d", &n, &k);
+	double ret = Pow(n, k);
+	printf("%lf\n", ret);
 	return 0;
 }
