@@ -19,13 +19,21 @@ void game()
 	InitBoard(show, ROWS, COLS, '*');//'*'
 
 	//打印棋盘 - 只打印中间9*9
-	DisplayBoard(mine, ROW, COL);
 	DisplayBoard(show, ROW, COL);
+	
+	//布置雷
+	SetMine(mine,ROW,COL);
+	/*DisplayBoard(mine, ROW, COL);*/
+	
+	//排查雷
+	FindMine(mine, show, ROW, COL);
+
 }
 
 int main()
 {
 	int input = 0;
+	srand((unsigned int)time(NULL));
 	do
 	{
 		menu();
