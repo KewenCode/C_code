@@ -148,23 +148,73 @@
 //	return 0;
 //}
 
-int main()
-{
-	int a = 10;
-	int b = a++;//后置++，先使用，再++
-	printf("%d\n", a);//11
-	printf("%d\n", b);//10
-	int a_after = 10;
-	int b_after = ++a_after;//前置++，先++，再使用
-	printf("%d\n", a_after);//11
-	printf("%d\n", b_after);//11
-	return 0;
-}
+//int main()
+//{
+//	int a = 10;
+//	int b = a++;//后置++，先使用，再++
+//	printf("%d\n", a);//11
+//	printf("%d\n", b);//10
+//	int a_after = 10;
+//	int b_after = ++a_after;//前置++，先++，再使用
+//	printf("%d\n", a_after);//11
+//	printf("%d\n", b_after);//11
+//	return 0;
+//}
+
+//int main()
+//{
+//	int a = 10;
+//	printf("%d\n", a--);//10
+//	printf("%d\n", a);//9
+//	return 0;
+//}
+
+//int main()
+//{
+//	int a = 10;
+//	printf("%p\n", &a);//& - 取地址操作符
+//	int *pa = &a;//pa是用来存放地址的 - pa就是一个指针变量
+//	*pa = 20;//* - 解引用操作符 - 间接访问操作符
+//	return 0;
+//}
+
+//int main()
+//{
+//	int a = (int)3.14;//强制类型转换
+//
+//	return 0;
+//}
+
+//int main()
+//{
+//	int i = 0, a = 0, b = 2, c = 3, d = 4;
+//	//i = a++ && ++b && d++;//1,2,3,4  && - 遇假即停
+//	i = a++ || ++b || d++;//2,2,3,4  || - 遇真即停
+//	printf("a=%d\nb=%d\nc=%d\nd=%d\n", a, b, c, d);
+//	return 0;
+//}
+
+
+//int main()
+//{
+//	int a = 3;
+//	int b = 0;
+//	if (a > 5)
+//		b = 1;
+//	else
+//		b = -1;
+//	//三目操作符
+//	b = (a > 5 ? 1 : -1);
+//	return 0;
+//}
 
 int main()
 {
-	int a = 10;
-	printf("%d\n", a--);//10
-	printf("%d\n", a);//9
+	int a = 3;
+	int b = 5;
+	int c = 0;
+	//逗号表达式 - 要从左向右依次计算，但整个表达式的结果是最后一个表达式的结果
+	int d = (c = 5, a = c + 3, b = a - 4, c += 5);
+	printf("d=%d\n", d);
 	return 0;
 }
