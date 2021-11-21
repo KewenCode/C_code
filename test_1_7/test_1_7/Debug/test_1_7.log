@@ -1,3 +1,2 @@
 ﻿  test.c
-D:\C语言\C_code\test_1_7\test_1_7\test.c(327,39): warning C4013: “strlen”未定义；假设外部返回 int
   test_1_7.vcxproj -> D:\C语言\C_code\test_1_7\Debug\test_1_7.exe
