@@ -85,7 +85,6 @@
 //	}
 //	*dest=*src//拷贝“\0”
 //}
-
 //void my_strcpy(char* dest, char* src)
 //{
 //	while (*src != '\0')//遇换行停止
@@ -94,9 +93,31 @@
 //	}
 //	*dest = *src//拷贝“\0”
 //}
+//void my_strcpy(char* dest, char* src)
+//{
+//	while (*dest++ = *src++;)//"\0" = 0 既拷贝了\0，又使循环停止
+//	{
+//		
+//	}
+//}
+//int main()
+//{
+//	char arr1[20] = "xxxxxxxxxx";
+//	char arr2[] = "hello";
+//	my_strcpy(arr1, arr2);
+//	//strcpy(arr1, arr2);
+//	printf("%s\n", arr1);
+//	return 0;
+//}
+
+
+//模拟实现strcopy
+#include <string.h>
 void my_strcpy(char* dest, char* src)
 {
-	while (*dest++ = *src++;)//"\0" = 0 既拷贝了\0，又使循环停止
+	assert(src != NULL);//断言
+	assert(dest != NULL);//断言
+	while (*dest++ = *src++;)
 	{
 		
 	}
@@ -105,8 +126,7 @@ int main()
 {
 	char arr1[20] = "xxxxxxxxxx";
 	char arr2[] = "hello";
-	my_strcpy(arr1, arr2);
-	//strcpy(arr1, arr2);
+	my_strcpy(arr1,arr2);//1.目标空间的起始地址 2.源空间的起始地址
 	printf("%s\n", arr1);
 	return 0;
 }
