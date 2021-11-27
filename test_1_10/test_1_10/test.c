@@ -111,22 +111,67 @@
 //}
 
 
-//模拟实现strcopy
-#include <string.h>
-void my_strcpy(char* dest, char* src)
+////模拟实现strcopy
+//#include <string.h>
+////const 修饰变量，这个变量就被称为常变量，不能被修改，但本质上是变量
+//void my_strcpy(char* dest, const char* src)
+//{
+//	assert(src != NULL);//断言
+//	assert(dest != NULL);//断言
+//	while (*dest++ = *src++;)
+//	{
+//		
+//	}
+//}
+//int main()
+//{
+//	char arr1[20] = "xxxxxxxxxx";
+//	char arr2[] = "hello";
+//	my_strcpy(arr1,arr2);//1.目标空间的起始地址 2.源空间的起始地址
+//	printf("%s\n", arr1);
+//	return 0;
+//}
+
+//int main()
+//{
+//	const int num = 10;
+//	//num = 20;//err
+//	const int* p = &num;
+//	//const修饰指针变量的时候
+//	//const如果放在*的左边，修饰的是*p，表示指针指向的内容，是不能通过指针改变的
+//	//但是指针变量本身是可以修改的
+//	//const如果放在*的右边，修饰的是指针变量p，表示指针变量不能被改变
+//	//但是指针指向的内容可以修改的
+//	*p = 20;
+//	return 0;
+//}
+
+//strcopy拷贝的是目标空间的起始地址
+
+//strlen 求字符串长度
+// my_strlen
+// 1.const
+// 2,assert
+//
+
+#include <assert.h>
+//size_t - unsigned int
+
+size_t my_strlen(const char* str)
 {
-	assert(src != NULL);//断言
-	assert(dest != NULL);//断言
-	while (*dest++ = *src++;)
+	//assert(str != NULL);
+	assert(str);
+	int count = 0;
+	while (*str++ != '\0')
 	{
-		
+		//str++;
+		count++;
 	}
+	return count;
 }
 int main()
 {
-	char arr1[20] = "xxxxxxxxxx";
-	char arr2[] = "hello";
-	my_strcpy(arr1,arr2);//1.目标空间的起始地址 2.源空间的起始地址
-	printf("%s\n", arr1);
+	char arr[] = "hello";
+	printf("%d\n", my_strlen(arr));
 	return 0;
 }
