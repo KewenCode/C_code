@@ -157,21 +157,119 @@
 #include <assert.h>
 //size_t - unsigned int
 
-size_t my_strlen(const char* str)
-{
-	//assert(str != NULL);
-	assert(str);
-	int count = 0;
-	while (*str++ != '\0')
-	{
-		//str++;
-		count++;
-	}
-	return count;
-}
+//size_t my_strlen(const char* str)
+//{
+//	//assert(str != NULL);
+//	assert(str);
+//	int count = 0;
+//	while (*str++ != '\0')
+//	{
+//		//str++;
+//		count++;
+//	}
+//	return count;
+//}
+//int main()
+//{
+//	char arr[] = "hello";
+//	printf("%d\n", my_strlen(arr));
+//	return 0;
+//}
+
+      //NumberOf1计算参数中n的二进制补码有几个1
+////int NumberOf1(unsigned int n)
+////{
+////	//15%2=1
+////	//15/2=7
+////	//7%2=1
+////	//7/2=3
+////	//……
+////	int count = 0;
+////	while (n)
+////	{
+////		if (n % 2 == 1)
+////		{
+////			count++;
+////		}
+////		n /= 2;
+////	}
+////	return count;
+////}
+//
+//int NumberOf1(unsigned int n)
+//{
+//	int count = 0;
+//	int i = 0;
+//	for (i = 0;i < 32;i++)
+//	{
+//		if ((n >> 1) & 1 == 1)
+//		{
+//			count++;
+//		}
+//	}
+//	return count;
+//}
+//
+////n = n&(n-1)
+////n = 15
+//// 1111 n
+//// 1110 n-1
+//// 1110 n
+//// 1101 n-1
+//// 1100 n
+//// 1001 n-1
+//// 1000 n
+//// 0111 n-1
+//// 0000 n
+//// 
+////
+//
+//int main()
+//{
+//	int n = 0;
+//	int ret = NumberOf1(n);
+//	printf("ret = %d\n", ret);
+//	return 0;
+//}
+
+
+     //两个数，不同位个数
+//int main()
+//{
+//    int m = 0;
+//    int n = 0;
+//    int i = 0;
+//    int count = 0;
+//    scanf("%d %d", &m, &n);
+//    int ret = m ^ n;//相同为0，相异为1
+//   /* for (i = 0;i < 32;i++)
+//    {
+//        if ((m >> 1) & 1 != (n >> 1) & 1)
+//        {
+//            count++;
+//        }
+//    }*/
+//    printf("%d\n", count);
+//    return 0;
+//}
+
+
 int main()
 {
-	char arr[] = "hello";
-	printf("%d\n", my_strlen(arr));
-	return 0;
+    int n = 0;
+    scanf("%d", &n);
+    //获取n的二进制中的奇数位和偶数位
+    int i = 0;
+    //打印偶数位
+    for (i = 31;i >= 1;i -= 2)
+    {
+        printf("%d ", (n >> i) & 1);
+    }
+    printf("\n");
+    //打印奇数位
+    for (i = 30;i >= 0;i -= 2)
+    {
+        printf("%d ", (n >> i) & 1);
+    }
+    return 0;
 }
