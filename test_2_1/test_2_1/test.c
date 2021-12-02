@@ -117,3 +117,39 @@
 //	//10000000000000000000000000001010
 //	return 0;
 //}
+
+//死循环 无符号，恒大于0
+//int main()
+//{
+//	unsigned int i;
+//	for (i = 9;i >= 0;i--)
+//	{
+//		printf("%u\n", i);
+//	}
+//	return 0;
+//}
+
+#include <string.h>
+//int main()
+//{
+//	char a[1000];
+//	int i;
+//	for (i = 0;i < 1000;i++)
+//	{
+//		a[i] = -1 - i;
+//	}
+//	//128+127=255
+//	//-1 -2 -3 ....-127 -128 127 ....2 1 0 -1
+//	printf("%d", strlen(a));//找到\0 -> 0
+//	return 0;
+//}
+
+//unsigned char i = 0;
+//int main()
+//{
+//	for (i = 0;i <= 255;i++)
+//	{
+//		printf("hello world\n");
+//	}
+//	return 0;
+//}
