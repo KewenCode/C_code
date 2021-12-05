@@ -203,25 +203,127 @@
 
 
 #include <assert.h>
-void reverse(char* str)
+//void reverse(char* str)
+//{
+//	assert(str != NULL);
+//	int len = strlen(str);
+//	char* left = str;
+//	char* right = (str + len - 1);
+//	while (left < right)
+//	{
+//		char tmp = *left;
+//		*left = *right;
+//		*right = tmp;
+//		left++;
+//		right--;
+//	}
+//}
+//int main()
+//{
+//	char arr[] = "abcdef";
+//	reverse(arr);
+//	printf("%s\n", arr);
+//	return 0;
+//}
+
+
+//打印菱形
+//int main()
+//{
+//	int line = 0;
+//	scanf("%d", &line);
+//	int i = 0;
+//	for (i = 0;i < line;i++)
+//	{
+//		int j = 0;
+//		for (j = 0;j < line - 1 - i;j++)
+//		{
+//			printf(" ");
+//		}
+//		for (j = 0;j < i * 2 + 1;j++)
+//		{
+//			printf("*");
+//		}
+//		printf("\n");
+//	}
+//	for (i = 0;i < line - 1;i++)
+//	{
+//		int j = 0;
+//		for (j = 0; j <= i; j++)
+//		{
+//			printf(" ");
+//		}
+//		for (j = 0;j < 2 * (line - 1 - i) - 1;j++)
+//		{
+//			printf("*");
+//		}
+//		printf("\n");
+//	}
+//	return 0;
+//}
+
+//一瓶汽水一元，两个瓶盖换一瓶，20元多少
+//int main()
+//{
+//	int money = 0;
+//	scanf("%d", &money);
+//	int total = 0;
+//	if (money > 0)
+//	{
+//		total = 2 * money - 1;
+//	}
+//
+//	//int total = money;
+//	//int empty = total;
+//	//while (empty >= 2)
+//	//{
+//	//	total += empty / 2;
+//	//	empty = empty / 2 + empty % 2;
+//	//}
+//	//printf("%d\n", total);
+//
+//	return 0;
+//}
+
+//输入数组，调整奇数位
+void print(int arr[], int sz)
 {
-	assert(str != NULL);
-	int len = strlen(str);
-	char* left = str;
-	char* right = (str + len - 1);
+	int i = 0;
+	for (i = 0;i <= sz;i++)
+	{
+		printf("%d", arr[i]);
+	}
+	printf("\n");
+}
+void move(int arr[], int sz)
+{
+	int left = 0;
+	int right = sz - 1;
 	while (left < right)
 	{
-		char tmp = *left;
-		*left = *right;
-		*right = tmp;
-		left++;
-		right--;
+		//从前方后找偶数
+		while ((left < right) && (arr[left] % 2 == 1))
+		{
+			left++;
+		}
+		//从后往前找奇数
+		while ((left < right) && (arr[right] % 2 == 0))
+		{
+			right++;
+		}
+		if (left < right)
+		{
+			int tmp = arr[left];
+			arr[left] = arr[right];
+			arr[right] = tmp;
+		}
 	}
 }
 int main()
 {
-	char arr[] = "abcdef";
-	reverse(arr);
-	printf("%s\n", arr);
+	int arr[] = { 1,2,3,4,5,6,7,8,9,10 };
+	int sz = sizeof(arr) / sizeof(arr[0]);
+	move(arr, sz);
+	print(arr, sz);
 	return 0;
 }
