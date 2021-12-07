@@ -385,3 +385,122 @@
 //	}
 //	return 0;
 //}
+
+//int main()
+//{
+//	int a = 0;
+//	int b = 0;
+//	int c = 0;
+//	int d = 0;
+//	int e = 0;
+//	for (a = 1;a <= 5;a++)
+//	{
+//		for (b = 1;b <= 5;b++)
+//		{
+//			for (c = 1;c <= 5;c++)
+//			{
+//				for (d = 1;d <= 5;d++)
+//				{
+//					for (e = 1;e <= 5;e++)
+//					{
+//						if (((b == a) + (a == 3) == 1)
+//							&& ((b == 2) + (e == 4) == 1)
+//							&& ((c == 1) + (d == 2) == 1)
+//							&& ((c == 5) + (d == 3) == 1)
+//							&& ((e == 4) + (a == 1) == 1)
+//							)
+//						{
+//							if (a* b* c* d* e == 120)
+//							{
+//								printf("a=%d b==%d c=%d d=%d e=%d\n", a, b, c, d, e);
+//							}
+//						}
+//					}
+//				}
+//			}
+//		}
+//	}
+//	return 0;
+//}
+
+
+//一级指针传参
+//void print(int* ptr, int sz)
+//{
+//	int i = 0;
+//	for (i = 0;i < sz;i++)
+//	{
+//		printf("%d ", *(ptr + i));
+//	}
+//}
+//int main()
+//{
+//	int arr[10] = { 1,2,3,4,5,6,7,8,9,10 };
+//	int* p = arr;
+//	int sz = sizeof(arr) / ssizeof(arr[0]);
+//	//p是一级指针
+//	print(p, sz);
+//	return 0;
+//}
+
+//二级指针传参
+//void test(int** p2)
+//{
+//	**p2 = 20;
+//}
+//int main()
+//{
+//	int a = 10;
+//	int* pa = &a;//一级指针
+//	int** ppa = &pa;//二级指针
+//	
+//	test(ppa);
+//	test(&pa);
+//
+//	int* arr[10] = { 0 };
+//	test(arr);//传存放一级指针的数组
+//
+//	return 0;
+//}
+
+//函数指针：指向函数的指针！
+//存放函数地址的指针
+//int Add(int x, int y)
+//{
+//	return x + y;
+//}
+//int main()
+//{
+//	int a = 10;
+//	int* pa = &a;
+//
+//	char ch = 'W';
+//	char* pc = &ch;
+//
+//	int arr[10] = { 0 };
+//	int (*parr)[10] = &arr;//取出数组地址
+//	//parr是指向数组的指针 - 存放是数组的地址
+//
+//	//函数指针 - 存放函数地址
+//	//&函数名 - 取到的就是函数的地址
+//	/*printf("%p\n", &arr);*/
+//	int (*pf)(int, int) = &Add;
+//	return 0;
+//}
+
+int Add(int x,int y)
+{
+	return x + y;
+}
+int main()
+{
+	//pt就是一个函数的指针变量
+	int (*pt)(int, int) = &Add;
+	int (*pt)(int, int) = Add;//Add == pt
+	int ret = (*pt)(3, 5);
+	// * 是摆设
+	int ret = Add(3, 5);
+	int ret = pt(3, 5);
+	printf("%d\n", ret);
+	return 0;
+}
