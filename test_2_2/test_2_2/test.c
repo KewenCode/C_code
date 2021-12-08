@@ -488,19 +488,136 @@
 //	return 0;
 //}
 
-int Add(int x,int y)
+//int Add(int x,int y)
+//{
+//	return x + y;
+//}
+//int main()
+//{
+//	//pt就是一个函数的指针变量
+//	int (*pt)(int, int) = &Add;
+//	int (*pt)(int, int) = Add;//Add == pt
+//	int ret = (*pt)(3, 5);
+//	// * 是摆设 
+//	int ret = Add(3, 5);
+//	int ret = pt(3, 5);
+//	printf("%d\n", ret);
+//	return 0;
+//}
+
+//int main()
+//{
+//	(*(void(*)())0)();
+//	//调用0地址处的函数
+//	//该函数无参，返回类型是void
+//	// 1.void(*)() - 函数指针类型
+//	// 2.（void(*)())0 - 对0进行强制类型转换，被解释为一个函数地址
+//	// 3.*（void(*)()）0 - 对0地址进行了解引用操作
+//	// 4.(*(void(*)())0)() - 调用0地址处的函数 
+//	//
+//	return 0;
+//}
+
+//void(*signal(int, void(*)(int)))(int);
+////typedef - 对类型进行重定义
+//typedef void(*pfun_t)(int);//对void(*)(int)的函数指针类型重命名为pyin_t
+//pfun_t signal(int, pfun_t);
+//
+//// 1.signal和（）先结合，说明signnal是函数名
+//// 2.signal函数的第一个参数的类型是int。第二个参数的类型是函数指针
+//// 该函数指针，指向一个参数为int，返回类型是void的函数
+//// 3.signal函数的返回类型也是一个函数指针
+//// 该函数指针，指向一个参数为int，返回类型是void的函数
+//// signal是一个函数声明
+////
+
+//函数指针数组
+//int Add(int x, int y)
+//{
+//	return x + y;
+//}
+//int Sub(int x, int y)
+//{
+//	return x - y;
+//}
+//int main()
+//{
+//	int(*pf1)(int, int) = Add;
+//	int(*pf2)(int, int) = Sub;
+//	int(*pfArr[2])(int, int) = { Add,Sub };//函数指针数组
+//
+//
+//	return 0;
+//}
+
+int Add(int x, int y)
 {
 	return x + y;
 }
+int Sub(int x, int y)
+{
+	return x - y;
+}
+int Mul(int x, int y)
+{
+	return x * y;
+}
+int Div(int x, int y)
+{
+	return x / y;
+}
+void menu()
+{
+	printf("*** 1.add 2.sub ***\n");
+	printf("*** 3.mul 4.dic ***\n");
+	printf("*** 0.exit ***\n");
+}
 int main()
 {
-	//pt就是一个函数的指针变量
-	int (*pt)(int, int) = &Add;
-	int (*pt)(int, int) = Add;//Add == pt
-	int ret = (*pt)(3, 5);
-	// * 是摆设
-	int ret = Add(3, 5);
-	int ret = pt(3, 5);
-	printf("%d\n", ret);
+	//计算器 - 计算整型加减乘除
+	int input = 0;
+	do {
+		menu();
+		
+		int x = 0;
+		int y = 0;
+		int ret = 0;
+
+		printf("请选择\n");
+		scanf("%d", &input);
+		switch (input)
+		{
+		case 1:
+			printf("请输入两个操作数\n");
+			scanf("%d %d", &x, &y);
+			ret = Add(x, y);
+			printf("ret=%d\n", ret);
+			break;
+		case 2:
+			printf("请输入两个操作数\n");
+			scanf("%d %d", &x, &y);
+			ret = Sub(x, y);
+			printf("ret=%d\n", ret);
+			break;
+		case 3:
+			printf("请输入两个操作数\n");
+			scanf("%d %d", &x, &y);
+			ret = Mul(x, y);
+			printf("ret=%d\n", ret);
+			break;
+		case 4:
+			printf("请输入两个操作数\n");
+			scanf("%d %d", &x, &y);
+			ret = Div(x, y);
+			printf("ret=%d\n", ret);
+			break;
+		case 0:
+			printf("退出程序\n");
+			break;
+		default:
+			printf("重新选择\n");
+			break;
+		}
+	} while (input);
 	return 0;
 }
