@@ -585,7 +585,28 @@ int main()
 
 		printf("请选择\n");
 		scanf("%d", &input);
-		switch (input)
+
+		if (input >= 1 && input <= 4)
+		{
+
+			//pfArr是函数指针
+			//转移表 - 《c和指针》
+			int (*pfArr[5])(int, int) = { 0,Add,Sub,Mul,Div };//将下表对应
+			printf("请输入两个操作数\n");
+			scanf("%d %d", &x, &y);
+			int ret = pfArr[input](x, y);
+			printf("ret=%d\n", ret);
+		}
+		else if(input==0)
+		{
+			printf("退出程序\n");
+			break;
+		}
+		else
+		{
+			printf("重新选择\n");
+		}
+		/*switch (input)
 		{
 		case 1:
 			printf("请输入两个操作数\n");
@@ -617,7 +638,16 @@ int main()
 		default:
 			printf("重新选择\n");
 			break;
-		}
+		}*/
 	} while (input);
 	return 0;
+}
+//回调函数
+int calc(int(*pf)(int, int))
+{
+	int x = 0;
+	int y = 0;
+	printf("请输入两个操作数\n");
+	scanf("%d %d", &x, &y);
+	return pf(x, y);
 }
