@@ -1,2 +1,16 @@
 ﻿  test.c
-  test_2_2.vcxproj -> D:\C语言\C_code\test_2_2\Debug\test_2_2.exe
+D:\C语言\C_code\test_2_2\test_2_2\test.c(720,28): error C2037: “age”的左侧部分指定未定义的结构/联合“Stu”
+D:\C语言\C_code\test_2_2\test_2_2\test.c(720,53): error C2037: “age”的左侧部分指定未定义的结构/联合“Stu”
+D:\C语言\C_code\test_2_2\test_2_2\test.c(720,2): warning C4033: “sort_age”必须返回值
+D:\C语言\C_code\test_2_2\test_2_2\test.c(722,6): error C2371: “test2”: 重定义；不同的基类型
+D:\C语言\C_code\test_2_2\test_2_2\test.c(709): message : 参见“test2”的声明
+D:\C语言\C_code\test_2_2\test_2_2\test.c(725,13): error C2079: “s”使用未定义的 struct“Stu”
+D:\C语言\C_code\test_2_2\test_2_2\test.c(725,65): error C2078: 初始值设定项太多
+D:\C语言\C_code\test_2_2\test_2_2\test.c(726,33): error C2109: 下标要求数组或指针类型
+D:\C语言\C_code\test_2_2\test_2_2\test.c(728,8): warning C4022: “qsort”: 指针与实参 1 不匹配
+D:\C语言\C_code\test_2_2\test_2_2\test.c(728,25): error C2109: 下标要求数组或指针类型
+D:\C语言\C_code\test_2_2\test_2_2\test.c(728,37): warning C4047: “函数”:“size_t”与“int (__cdecl *)(const void *,const void *)”的间接级别不同
+D:\C语言\C_code\test_2_2\test_2_2\test.c(728,29): warning C4024: “qsort”: 形参和实参 3 的类型不同
+D:\C语言\C_code\test_2_2\test_2_2\test.c(728,7): error C2198: “qsort”: 用于调用的参数太少
+D:\C语言\C_code\test_2_2\test_2_2\test.c(725,13): error C2078: 初始值设定项太多
+D:\C语言\C_code\test_2_2\test_2_2\test.c(725,1): warning C4047: “初始化”:“int”与“char [9]”的间接级别不同
