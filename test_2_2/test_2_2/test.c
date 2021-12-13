@@ -790,3 +790,25 @@ void print_arr(int arr[], int sz)
 //}
 
 //p[0] -> *(p+0)
+
+//sizeof(a[0]) - 数组名a[0]单独放在数组内部
+//a[0]表示整行
+//sizeof(a[0])计算的是整行的大小
+
+struct Test
+{
+	int Name;
+	char* pcName;
+	short sDate;
+	char cha[2];
+	short sBa[4];
+}*p;
+//假设p的值为0x100000.如下表达式值分别为多少？
+//已知，结构体Test类型的变量大小是20个字节
+int main()
+{
+	printf("%p\n", p + 0x1);
+	printf("%p\n", (unsigned long)p + 0x1);
+	printf("%p\n", (unsigned int*)p + 0x1);
+	return 0;
+}
