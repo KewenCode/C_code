@@ -807,8 +807,8 @@ struct Test
 //已知，结构体Test类型的变量大小是20个字节
 int main()
 {
-	printf("%p\n", p + 0x1);
-	printf("%p\n", (unsigned long)p + 0x1);
-	printf("%p\n", (unsigned int*)p + 0x1);
+	printf("%p\n", p + 0x1);//0x100014
+	printf("%p\n", (unsigned long)p + 0x1);//0x100001
+	printf("%p\n", (unsigned int*)p + 0x1);//0x100004
 	return 0;
 }
