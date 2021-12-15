@@ -795,20 +795,37 @@ void print_arr(int arr[], int sz)
 //a[0]表示整行
 //sizeof(a[0])计算的是整行的大小
 
-struct Test
-{
-	int Name;
-	char* pcName;
-	short sDate;
-	char cha[2];
-	short sBa[4];
-}*p;
-//假设p的值为0x100000.如下表达式值分别为多少？
-//已知，结构体Test类型的变量大小是20个字节
-int main()
-{
-	printf("%p\n", p + 0x1);//0x100014
-	printf("%p\n", (unsigned long)p + 0x1);//0x100001
-	printf("%p\n", (unsigned int*)p + 0x1);//0x100004
-	return 0;
-}
+//struct Test
+//{
+//	int Name;
+//	char* pcName;
+//	short sDate;
+//	char cha[2];
+//	short sBa[4];
+//}*p;
+////假设p的值为0x100000.如下表达式值分别为多少？
+////已知，结构体Test类型的变量大小是20个字节
+//int main()
+//{
+//	printf("%p\n", p + 0x1);//0x100014
+//	printf("%p\n", (unsigned long)p + 0x1);//0x100001
+//	printf("%p\n", (unsigned int*)p + 0x1);//0x100004
+//	return 0;
+
+
+//int main()
+//{
+//	char* c[] = { "ENTER","NEW","POINT","FIRST" };
+//	char** cp[] = { c + 3,c + 2,c + 1,c };
+//	char*** cpp = cp;
+//	printf("%s\n", **++cpp);//point
+//	printf("%s\n", *--*++cpp+3);// ((*(--*(++cpp)))+3) - er
+//	printf("%s\n", *cpp[-2]+3);// (*(*(cpp-2))+3) - st
+//	printf("%s\n", cpp[-1][-1]+1);// (*(*(cpp-1)-1)+1)ew
+//	return 0;
+//}
+////需画图解决
+////这里cpp、cp、c在print后并不会消失，会继承属性
+////
+
+
