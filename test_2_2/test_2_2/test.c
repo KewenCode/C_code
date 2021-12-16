@@ -693,19 +693,19 @@
 //}
 
 //#include <stdlib.h>
-int cmp_int(const void* e1, const void* e2)
-{
-	return *(int*)e1 - *(int*)e2;
-}
-void print_arr(int arr[], int sz)
-{
-	int i = 0;
-	for (i = 0;i < sz;i++)
-	{
-		printf("%d ", arr[i]);
-	}
-	printf("\n");
-}
+//int cmp_int(const void* e1, const void* e2)
+//{
+//	return *(int*)e1 - *(int*)e2;
+//}
+//void print_arr(int arr[], int sz)
+//{
+//	int i = 0;
+//	for (i = 0;i < sz;i++)
+//	{
+//		printf("%d ", arr[i]);
+//	}
+//	printf("\n");
+//}
 //int test2()
 //{
 //	int arr[] = { 9,8,7,6,5,4,3,2,1,0 };
@@ -829,3 +829,48 @@ void print_arr(int arr[], int sz)
 ////
 
 
+//int* p = malloc(40);
+////使用p指向的40个字节的空间
+//free(p);
+
+
+//杨氏矩阵
+//时间复杂度小于O(N)
+int find_num(int arr[3][3], int r, int c, int k)
+{
+	int x = 0;
+	int y = c-1;
+	while (x < r && y >= 0)
+	{
+		if (arr[x][y] < k)
+		{
+			x++;
+		}
+		else if (arr[x][y] > k)
+		{
+			y--;
+		}
+		else
+		{
+			printf("%d %d\n", x, y);
+			return 1;
+		}
+	}
+	return 0;
+}
+int main()
+{
+	int arr[3][3] = { 1,2,3,4,5,6,7,8,9 };
+	int k = 7;
+	//如果找到返回1，找不到返回0
+	int ret = find_num(arr, 3, 3, k);
+	if (ret == 1)
+	{
+		printf("找到了\n");
+	}
+	else
+	{
+		printf("找不到了\n");
+	}
+	return 0;
+}
