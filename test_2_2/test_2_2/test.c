@@ -836,41 +836,107 @@
 
 //杨氏矩阵
 //时间复杂度小于O(N)
-int find_num(int arr[3][3], int r, int c, int k)
-{
-	int x = 0;
-	int y = c-1;
-	while (x < r && y >= 0)
-	{
-		if (arr[x][y] < k)
-		{
-			x++;
-		}
-		else if (arr[x][y] > k)
-		{
-			y--;
-		}
-		else
-		{
-			printf("%d %d\n", x, y);
-			return 1;
-		}
-	}
-	return 0;
-}
-int main()
-{
-	int arr[3][3] = { 1,2,3,4,5,6,7,8,9 };
-	int k = 7;
-	//如果找到返回1，找不到返回0
-	int ret = find_num(arr, 3, 3, k);
-	if (ret == 1)
-	{
-		printf("找到了\n");
-	}
-	else
-	{
-		printf("找不到了\n");
-	}
-	return 0;
-}
+//int find_num(int arr[3][3], int r, int c, int k)
+//{
+//	int x = 0;
+//	int y = c-1;
+//	while (x < r && y >= 0)
+//	{
+//		if (arr[x][y] < k)
+//		{
+//			x++;
+//		}
+//		else if (arr[x][y] > k)
+//		{
+//			y--;
+//		}
+//		else
+//		{
+//			printf("%d %d\n", x, y);
+//			return 1;
+//		}
+//	}
+//	return 0;
+//}
+//int main()
+//{
+//	int arr[3][3] = { 1,2,3,4,5,6,7,8,9 };
+//	int k = 7;
+//	//如果找到返回1，找不到返回0
+//	int ret = find_num(arr, 3, 3, k);
+//	if (ret == 1)
+//	{
+//		printf("找到了\n");
+//	}
+//	else
+//	{
+//		printf("找不到了\n");
+//	}
+//	return 0;
+//}
+
+
+//字符串左旋
+// ABCD - BCDA	左旋一个
+// ABCD - CDAB 左旋两个
+
+//Th.1
+//void left_move(char* arr, int k)
+//{
+//	int i = 0;
+//	int len = strlen(arr);
+//	int tmp = 0;
+//
+//	for (i = 0;i < k;i++)
+//	{
+//		tmp = arr[0];
+//		int j = 0;
+//		for (j = 0;j < len;j++)
+//		{
+//			*(arr + j) = *(arr + j + 1);
+//			//arr[j] = arr[j + 1];
+//		}
+//		arr[len - 1] = tmp;
+//	}
+//	
+//}
+
+//Th.2 - 三步翻转法
+//AB CDEF
+//BA FEDC
+//CDEF AB - 逆序
+// 
+//#include <assert.h>
+//void reverse(char* left, char* right)
+//{
+//	assert(left);
+//	assert(right);
+//	while (left < right)
+//	{
+//		char tmp = *left;
+//		*left = *right;
+//		*right = tmp;
+//		left++;
+//		right--;
+//	}
+//
+//}
+//void left_move_reverse(char* arr, int k)
+//{
+//	assert(str);
+//	int len = strlen(arr);
+//	reverse(arr, arr + k - 1);//左
+//	reverse(arr + k, arr + len - 1);//右
+//	reverse(arr, arr + len - 1);//整体
+//}
+
+//int main()
+//{
+//	char arr[10] = "0";
+//	int k = 0;
+//	scanf("%s %d", &arr, &k);
+//	left_move(arr,k);
+//	printf("%s", arr);
+//	return 0;
+//}
+
