@@ -940,3 +940,20 @@
 //	return 0;
 //}
 
+int main()
+{
+	char arr[10] = "hello ";
+	strcat(arr, "bit");//追加字符串
+	strncat(arr, arr, 5);//追加5个字符串
+	char* ret = strstr(arr1, arr2);//判断是否为子函数
+	if (ret = NULL)
+	{
+		return 0;
+	}
+	else
+	{
+		return 1;
+	}
+
+	return 0;
+}
