@@ -133,3 +133,81 @@
 //	int ret = strncmp(p, q, 3);
 //	return 0;
 //}
+
+  //strstr在一个字符串中找另一个字符串
+//char* my_strstr(const char* arr1, const char* arr2)
+//{
+//	assert(arr1 && arr2);
+//	const char* s1 = NULL;
+//	const char* s2 = NULL;
+//	const char* cp = arr1;
+//
+//	if (*arr2 == '\0')
+//	{
+//		return(char*)arr1;
+//	}
+//
+//	while (*cp)
+//	{
+//		s1 = cp;
+//		s2 = arr2;
+//		while (*s1 && *s2 && (*s1 == *s2))
+//		{
+//			s1++;
+//			s2++;
+//		}
+//		cp++;
+//	}
+//}
+//int amin()
+//{
+//	char arr1[] = "abcdefabcdef";
+//	char arr2[] = "bcd";
+//	//在aar1中查找是否包含arr2数组
+//	char* ret = my_strstr(arr1, arr2);
+//	if (ret = NULL)
+//	{
+//		printf("没找到\n");
+//	}
+//	else
+//	{
+//
+//	}
+//	return 0;
+//}
+
+  //strtok - 切割字符串
+//int main()
+//{
+//	char arr[] = "zpw@dedef.cht";
+//	char* p = "@.";
+//	char tmp[20] = {0};
+//	strcpy(tmp, arr);
+//
+//	char* ret = NULL;
+//	for (ret = strtok(tmp, p);ret != NULL;ret = strtok(NULL, p))
+//	{
+//		printf("%s\n", ret);
+//	}
+//	//ret=strtok(tmp, p);
+//	//printf("%s\n", ret);
+//	//ret = strtok(NULL, p);
+//	//printf("%s\n", ret);
+//	//ret = strtok(NULL, p);
+//	//printf("%s\n", ret);
+//
+//
+//	return 0;
+//}
+
+//使用库函数时候
+// 调用库函数失败时，都会设置错误码
+//全局错误码
+
+  //strerror
+#include <errno.h>
+int main()
+{
+	printf("%s\n", strerror(errno));
+	return 0;
+}
