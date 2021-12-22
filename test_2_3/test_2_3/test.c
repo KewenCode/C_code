@@ -204,10 +204,73 @@
 // 调用库函数失败时，都会设置错误码
 //全局错误码
 
-  //strerror
+  //strerror - 把错误码转换成错误信息
 #include <errno.h>
+//int main()
+//{
+//	printf("%s\n", strerror(errno));
+//	return 0;
+//}
+
+  //perror - 直接返回错误信息
+//int main()
+//{
+//	//打开文件失败的时候，会返回NULL
+//	FILE* pf = fopen("test.tct", "r");
+//	//0 "no error"
+//	if (pf == NULL)
+//	{
+//		perror("fopen");//直接打印
+//		return 1;
+//	}
+//	return 0;
+//}
+
+#include <ctype.h>
+//int main()
+//{
+//	char* ch = '*';
+//	int ret = isdigit(ch);
+//	return 0;
+//}
+
+  //tolower - 大小写转换
+//int main()
+//{
+//	char arr[20] = { 0 };
+//	scanf("%s", arr);
+//	int i = 0;
+//	while (arr[i] != '\0')
+//	{
+//		if (isupper(arr[i]))
+//		{
+//			arr[i] = tolower(arr[i]);
+//		}
+//		printf("%c", arr[i]);
+//		i++;
+//	}
+//	return 0;
+//}
+
+//内存函数
+
+//memcpy - 内存拷贝
+void* my_memcpy(void*dest,const void*src,size_t num)
+{
+	void* ret = dest;
+	assert(dest && src);
+	while (num--)
+	{
+		*(char*)dest = *(char*)src;
+		dest = (char*)dest + 1;
+		src = (char*)src + 1;
+	}
+	return ret;
+}
 int main()
 {
-	printf("%s\n", strerror(errno));
+	int arr1[10] = { 1,2,3,4,5,6,7,8,9,10 };
+	int arr2[20] = { 0 };
+	my_memcpy(arr2, arr2, 20);
 	return 0;
 }
