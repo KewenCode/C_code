@@ -254,23 +254,76 @@
 
 //内存函数
 
-//memcpy - 内存拷贝
-void* my_memcpy(void*dest,const void*src,size_t num)
-{
-	void* ret = dest;
-	assert(dest && src);
-	while (num--)
-	{
-		*(char*)dest = *(char*)src;
-		dest = (char*)dest + 1;
-		src = (char*)src + 1;
-	}
-	return ret;
-}
-int main()
-{
-	int arr1[10] = { 1,2,3,4,5,6,7,8,9,10 };
-	int arr2[20] = { 0 };
-	my_memcpy(arr2, arr2, 20);
-	return 0;
-}
+//memcpy - 内存拷贝 - 拷贝不重叠的地方
+//memmove - 可以处理内存重叠情况
+//void* my_memcpy(void*dest,const void*src,size_t num)
+//{
+//	void* ret = dest;
+//	assert(dest && src);
+//	while (num--)
+//	{
+//		*(char*)dest = *(char*)src;
+//		dest = (char*)dest + 1;
+//		src = (char*)src + 1;
+//	}
+//	return ret;
+//}
+//int main()
+//{
+//	int arr1[10] = { 1,2,3,4,5,6,7,8,9,10 };
+//	int arr2[20] = { 0 };
+//	my_memcpy(arr2, arr2, 20);
+//	return 0;
+//}
+
+//void* my_memmove(void* dest, const void* src, size_t sz)
+//{
+//	void* ret = dest;
+//	assert(dest && src);
+//	if (dest < src)
+//	{
+//		//前-》后
+//		while (sz--)
+//		{
+//			*(char*)dest = *(char*)src;
+//			dest = (char*)dest + 1;
+//			src = (char*)src + 1;
+//		}
+//	}
+//	else
+//	{
+//		//后-》前
+//		while (sz--)
+//		{
+//			*((char*)dest + sz) = *((char*)src + sz);
+//		}
+//	}
+//	return ret;
+//}
+//int main()
+//{
+//	int arr1[10] = { 1,2,3,4,5,6,7,8,9,10 };
+//	my_memmove(arr1 + 2, arr1, 20);
+//	
+//	return 0;
+//}
+
+//memcmp - 内存比较
+
+//int main()
+//{
+//	float arr1[] = { 1.0,2.0,3.0,4.0 };
+//	float arr2[] = { 1.0,3.0 };
+//	int ret = memcmp(arr1, arr2, 4);
+//	printf("%d\n", ret);
+//	return 0;
+//}
+
+//memset
+
+//int main()
+//{
+//	int arr1[10] = { 0 };
+//	memsrt(arr1, 1, 20);//以字节为单位设置内存
+//	return 0;
+//}
