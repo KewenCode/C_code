@@ -51,11 +51,14 @@
 
 struct S
 {
+	char c1;
 	int i;
-	char c;
+	char c2;
 };
 int main()
 {
 	struct S s = { 0 };
+
 	printf("%d\n", sizeof(s));
+	return 0;
 }
