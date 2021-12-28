@@ -62,3 +62,6 @@ int main()
 	printf("%d\n", sizeof(s));
 	return 0;
 }
+
+//对齐原因
+//1.保证一次性读取 2.保证不同平台兼容
