@@ -49,19 +49,46 @@
 
 //结构体内存对齐
 
-struct S
-{
-	char c1;
-	int i;
-	char c2;
-};
-int main()
-{
-	struct S s = { 0 };
-
-	printf("%d\n", sizeof(s));
-	return 0;
-}
+//struct S
+//{
+//	char c1;
+//	int i;
+//	char c2;
+//};
+//int main()
+//{
+//	struct S s = { 0 };
+//
+//	printf("%d\n", sizeof(s));
+//	return 0;
+//}
 
 //对齐原因
 //1.保证一次性读取 2.保证不同平台兼容
+
+
+
+//把默认对齐数改为2
+//#pragma pack(2)
+//struct S
+//{
+//	char c1;
+//	int i;
+//	char c2;
+//};
+//int main()
+//{
+//	printf("%d\n", sizeof(struct S));
+//	return 0;
+//}
+
+
+//位段类型
+struct A
+{
+	int _a : 2;//_a成员占2个比特位
+	int _b : 5;//_b成员占5个比特位
+	int _c : 10;//_c成员占10个比特位
+	int _d : 30;//_d成员占30个比特位
+
+};
