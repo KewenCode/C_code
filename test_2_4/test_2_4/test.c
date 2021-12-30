@@ -84,11 +84,23 @@
 
 
 //位段类型
-struct A
-{
-	int _a : 2;//_a成员占2个比特位
-	int _b : 5;//_b成员占5个比特位
-	int _c : 10;//_c成员占10个比特位
-	int _d : 30;//_d成员占30个比特位
+//struct A
+//{
+//	int _a : 2;//_a成员占2个比特位
+//	int _b : 5;//_b成员占5个比特位
+//	int _c : 10;//_c成员占10个比特位
+//	int _d : 30;//_d成员占30个比特位
+//
+//};
 
+enum Colour
+{
+	RED,
+	GREEN,
+	BLUE
 };
+int main()
+{
+	enum Colour c = BLUE;
+	return 0;
+}
