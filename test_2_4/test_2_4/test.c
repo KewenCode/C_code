@@ -93,14 +93,35 @@
 //
 //};
 
-enum Colour
+//枚举
+//enum Colour
+//{
+//	RED,
+//	GREEN,
+//	BLUE
+//};
+//int main()
+//{
+//	enum Colour c = BLUE;
+//	return 0;
+//}
+
+
+//联合（共用体）
+int check_sys()
 {
-	RED,
-	GREEN,
-	BLUE
-};
+	union Un
+	{
+		char c;//1
+		int i;//4
+	}u;
+	u.i = 1;
+	return u.c;
+	//返回1就是小端
+	//返回0就是大端
+}
 int main()
 {
-	enum Colour c = BLUE;
+	int ret = check_sys();
 	return 0;
 }
