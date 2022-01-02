@@ -38,6 +38,8 @@ int main()
 	int input = 0;
 	//创建通讯录
 	Contact con;//通讯录
+	//初始化通讯录
+	InitContact(&con);
 
 	do
 	{
@@ -47,17 +49,25 @@ int main()
 		switch (input)
 		{
 		case ADD:
-			AddContact();
+			//增加人的信息
+			AddContact(&con);
 			break;
 		case DEL:
+			//删除联系人
+			DelContact(&con);
 			break;
 		case SEARCH:
+			SearchContact(&con);
 			break;
 		case MODIFY:
+			//修改联系人
+			ModifyContact(&con);
 			break;
 		case SORT:
 			break;
 		case PRINT:
+			//显示联系人
+			PrintContact(&con);
 			break;
 		case EXIT:
 			break;
