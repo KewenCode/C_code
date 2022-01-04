@@ -12,6 +12,11 @@
 // 5.查找指定人的信息
 // 6。排序通讯录的信息
 //
+//	V2.0
+// 动态增长版本
+// 1.通讯录初始化后，能存放3个人信息
+// 2.存放满后，每次增加两个信息
+//
 
 void menu()
 {
@@ -39,6 +44,7 @@ int main()
 	//创建通讯录
 	Contact con;//通讯录
 	//初始化通讯录
+	//给date申请一块连续的空间在堆区上
 	InitContact(&con);
 
 	do
@@ -70,6 +76,8 @@ int main()
 			PrintContact(&con);
 			break;
 		case EXIT:
+			//销毁内存
+			DestoryContact(&con);
 			break;
 		default:
 			break;

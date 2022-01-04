@@ -2,12 +2,16 @@
 
 #include <stdio.h>
 #include <string.h>
+#include <stdlib.h>
 
 #define MAX_NAME 20
 #define MAX_SEX 10
 #define MAX_TEL 12
 #define MAX_ADDR 30
 #define MAX 1000
+
+#define DESAULT_SZ 3
+#define INT_SZ 2
 
 //类型的定义
 typedef struct PeopleInfo
@@ -22,8 +26,9 @@ typedef struct PeopleInfo
 //通讯录
 typedef struct Contact
 {
-	PeopleInfo date[MAX];//存放进来的人的信息
+	PeopleInfo *date;//存放进来的人的信息，指向动态申请的空间
 	int sz;//记录当前通讯录中有效信息的个数
+	int capacity;//记录当前通讯录最大容量
 }Contact;
 
 //初始化通讯录
@@ -39,7 +44,10 @@ void PrintContact(const Contact* pc);
 void DelContact(Contact* pc);
 
 //查找联系人
-void SearchContact(const Contact* pc);
+void SearchContact(Contact* pc);
 
 //修改指定联系人
 void ModifyContact(Contact* pc);
+
+//销毁通讯录
+void DestoryContact(Contact* pc);
