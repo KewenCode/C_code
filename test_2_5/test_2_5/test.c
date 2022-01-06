@@ -93,14 +93,16 @@
 
 //动态内存开辟常见错误
 //1.对NULL指针的解引用操作
-int main()
-{
-	int* p = malloc(1000000000);
-	//对malloc进行判空操作
-	int i = 0;
-	for (i = 0;i < 10;i++)
-	{
-		*(p + i) = 1;
-	}
-	return 0;
-}
+//int main()
+//{
+//	int* p = malloc(1000000000);
+//	//对malloc进行判空操作
+//	int i = 0;
+//	for (i = 0;i < 10;i++)
+//	{
+//		*(p + i) = 1;
+//	}
+//	return 0;
+//}
+
+//malloc注意野指针与指针引用
