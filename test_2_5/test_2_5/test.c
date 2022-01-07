@@ -106,3 +106,35 @@
 //}
 
 //malloc注意野指针与指针引用
+
+
+
+//柔性数组
+struct S
+{
+	int n;
+	int arr[0];//大小未知
+};
+int main()
+{
+	//期望arr的大小是10个整型
+	struct S* ps = (struct S*)malloc(sizeof(struct S) + 10 * sizeof(int));
+	ps->n = 10;
+	int i = 0;
+	for (i = 0;i < 10;i++)
+	{
+		ps->arr[i] = i;
+	}
+	//增加
+	struct S* ptr = (struct S*)realloc(ps, sizeof(struct S)) + 20 * sizeof(int));
+	if (ptr != NULL)
+	{
+		ps = ptr;
+	}
+	//释放
+	free(ps);
+	ps = NULL;
+	//struct S n = { 0 };
+	//printf("%d", sizeof(n));//柔性数组计算大小不包括最后未至大小
+	return 0;
+}
