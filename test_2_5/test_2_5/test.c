@@ -140,26 +140,63 @@
 //}
 
 
+//int main()
+//{
+//	int n = 0;
+//	while (scanf("%d", &n) != EOF)
+//	{
+//		int i = 0;
+//		for (i = 0;i < n;i++)
+//		{
+//			int j = 0;
+//			for (j = 0;j < n;j++)
+//			{
+//				if (i == j)
+//					printf("*");
+//				else if (i + j == n - 1)
+//					printf("*");
+//				else
+//					printf(" ");
+//			}
+//			printf("\n");
+//		}
+//	}
+//	return 0;
+//}
+
 int main()
 {
+	int arr[51] = { 0 };
+	//输入
 	int n = 0;
-	while (scanf("%d", &n) != EOF)
+	//n的输入
+	scanf("%d", &n);
+	int i = 0;
+	//n个数的输入
+	for (i = 0;i < n;i++)
 	{
-		int i = 0;
-		for (i = 0;i < n;i++)
+		scanf("%d", &arr[i]);
+	}
+	//输入要插入的数据
+	int m = 0;
+	scanf("%d", &m);
+	//插入数据
+	for (i = n - 1;i >= 0;i--);
+	{
+		if (arr[i] > m)
+			arr[i + 1] = arr[i];
+		else
 		{
-			int j = 0;
-			for (j = 0;j < n;j++)
-			{
-				if (i == j)
-					printf("*");
-				else if (i + j == n - 1)
-					printf("*");
-				else
-					printf(" ");
-			}
-			printf("\n");
+			arr[i + 1] = m;
+			break;
 		}
+	}
+	if (i < 0)
+		arr[0] = m;
+	//输出
+	for (i = 0;i < n + 1;i++)
+	{
+		printf("%d ", arr[i]);
 	}
 	return 0;
 }
