@@ -16,6 +16,10 @@
 // 动态增长版本
 // 1.通讯录初始化后，能存放3个人信息
 // 2.存放满后，每次增加两个信息
+// 
+// V3.0
+// 当通讯录退出的时候，把信息写道文件
+// 当通讯录初始化的时候，加载文件的信息到通讯录
 //
 
 void menu()
@@ -76,6 +80,8 @@ int main()
 			PrintContact(&con);
 			break;
 		case EXIT:
+			//保存信息到文件
+			SaveContact(&con);
 			//销毁内存
 			DestoryContact(&con);
 			break;

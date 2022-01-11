@@ -21,6 +21,9 @@ void InitContact(Contact* pc)
 	}
 	pc->sz = 0;//初始化后默认是0
 	pc->capacity = DESAULT_SZ;
+
+	//加载文件
+	LoadContact(pc);
 }
 
 //静态版本
@@ -46,8 +49,7 @@ void InitContact(Contact* pc)
 //	printf("增加成功！\n");
 //}
 
-//动态版本
-void AddContact(Contact* pc)
+void CheckCapacity(Contact* pc)
 {
 	if (pc->sz == pc->capacity)
 	{
@@ -56,6 +58,7 @@ void AddContact(Contact* pc)
 		{
 			pc->date = ptr;
 			pc->capacity += INT_SZ;
+			printf("增容成功！\n");
 		}
 		else
 		{
@@ -64,6 +67,13 @@ void AddContact(Contact* pc)
 			return;
 		}
 	}
+}
+
+//动态版本
+void AddContact(Contact* pc)
+{
+	//增容
+	CheckCapacity(pc);
 	//增加一个人的信息
 	printf("请输入名字:>");
 	scanf("%s", pc->date[pc->sz].name);
@@ -191,4 +201,48 @@ void DestoryContact(Contact* pc)
 	pc->date = NULL;
 	pc->sz = 0;
 	pc->capacity = 0;
+}
+
+
+void SaveContact(Contact* pc)
+{
+	//打开文件
+	FILE* pf = fopen("contact.dat", "w");
+	if (pf == NULL)
+	{
+		perror("SaveContact");
+		return;
+	}
+	//写文件
+	int i = 0;
+	for (i = 0;i < pc->sz;i++)
+	{
+		fwrite(pc->date + i, sizeof(PeopleInfo), 1, pf);
+	}
+	//关闭文件
+	fclose(pf);
+	pf = NULL;
+}
+
+void LoadContact(Contact* pc)
+{
+	FILE* pf = fopen("contact.dat", "r");
+	if (pf == NULL)
+	{
+		perror("LoadContact");
+		return;
+	}
+	//读文件
+	PeopleInfo tmp = { 0 };
+	while (fread(&tmp, sizeof(PeopleInfo), 1, pf))
+	{
+		//是否需要增容
+		CheckCapacity(pc);
+		pc->date[pc->sz] = tmp;
+		pc->sz++;
+	}
+
+	//关闭文件
+	fclose(pf);
+	pf = NULL;
 }
