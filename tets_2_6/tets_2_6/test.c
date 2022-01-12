@@ -79,28 +79,78 @@
 //}
 
 //二进制读写
-struct S
-{
-	char arr[10];
-	int num;
-	float sc;
-};
+//struct S
+//{
+//	char arr[10];
+//	int num;
+//	float sc;
+//};
+//int main()
+//{
+//	struct S s = { "abcdef",10,5.5f };
+//	//二进制写文件
+//	FILE* pf = fopen("test.dat", "w");
+//	if (NULL == pf)
+//	{
+//		perror("fopen");
+//		return 1;
+//	}
+//	//写文件
+//	fwrite(&s, sizeof(struct S), 1, pf);
+//	//读文件
+//	/*fread(&s, sizeof(struct S), 1, pf);*/
+//	//打印
+//	/*printf("%s %d %f\n", s.arr, s.num, s.sc);*/
+//	//关闭文件
+//	fclose(pf);
+//	pf = NULL;
+//	return 0;
+//}
+
+//struct S
+//{
+//	char arr[10];
+//	int age;
+//	float f;
+//};
+//
+//int main()
+//{
+//	struct S s = { "hello",20,5.5f };
+//	struct S tmp = { 0 };
+//
+//	char buf[100] = { 0 };
+//	//sprintf把一个格式化数据，转换为字符串
+//	sprintf(buf, "%s %d %f", s.arr, s.age, s.f);
+//	printf("%s\n", buf);
+//	//从buf中还原一个结构体数据
+//	sscanf(buf, "%s %d %f", tmp.arr, &(tmp.age), &(tmp.f));
+//	printf("%s %d %f\n", tmp.arr, tmp.age, tmp.f);
+//	return 0;
+//
+//}
+
+
 int main()
 {
-	struct S s = { "abcdef",10,5.5f };
-	//二进制写文件
-	FILE* pf = fopen("test.dat", "r");
-	if (NULL == pf)
+	FILE* pf = fopen("test.txt", "r");
+	if (pf == NULL)
 	{
 		perror("fopen");
 		return 1;
 	}
-	//写文件
-	/*fwrite(&s, sizeof(struct S), 1, pf);*/
-	//读文件
-	fread(&s, sizeof(struct S), 1, pf);
-	//打印
-	printf("%s %d %f\n", s.arr, s.num, s.sc);
+	//读取文件
+	int ch = fgetc(pf);
+	printf("%c\n", ch);
+	//调整文件指针
+	fseek(pf, -1, SEEK_CUR);
+
+	ch = fgetc(pf);
+	printf("%c\n", ch);
+	ch = fgetc(pf);
+	printf("%c\n", ch);
+	//让文件指针回到起始位置
+	rewind(pf);
 	//关闭文件
 	fclose(pf);
 	pf = NULL;
