@@ -157,15 +157,15 @@
 //}
 
 
-int mian()
+int main()
 {
 	FILE* pfread = fopen("test.txt", "r");
-	if (pfread = NULL)
+	if (pfread == NULL)
 	{
 		return 1;
 	}
 	FILE* pfwrite = fopen("test2.txt", "w");
-	if (pfwerite = NULL)
+	if (pfwrite == NULL)
 	{
 		fclose(pfread);
 		pfread = NULL;
